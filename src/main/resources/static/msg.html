@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <script src="/jquery-3.5.1.min.js"></script>
+</head>
+<script type="text/javascript">
+	$(function() {
+		// Create WebSocket connection.
+		const socket = new WebSocket('ws://192.168.5.104/push?id=11');
+
+		// Connection opened
+		socket.addEventListener('open', function (event) {
+		    socket.send('Hello Server!');
+		});
+
+		// Listen for messages
+		socket.addEventListener('message', function (event) {
+		    console.log('Message from server ', event.data);
+		});
+	});
+</script>
+<body>
+
+</body>
+</html>
